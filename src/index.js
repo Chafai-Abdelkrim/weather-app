@@ -1,9 +1,20 @@
 import './styles.css';
 
-const form = document.getElementById('search');
-form.addEventListener('submit', (e) => {
+let lastLocation;
+const search = (e) => {
     e.preventDefault();
-    const userInput = document.querySelector('search-input');
-    getWeather(userInput.value);
-    userInput.value = '';
-});
+    const location = searchForm.text.value;
+    if (location && location !== lastLocation) {
+        getWeather(location);
+    }
+    lastLocation = location;
+};
+
+const toggleUnits = () => {
+    const location = document.querySelector(
+        '#current-weather-card .weather-location'
+    )?.textContent;
+    if (location !== '.') {
+        getWeather(location);
+    }
+};
