@@ -65,3 +65,21 @@ const createDailyCard = (weather) => {
 
     return card;
 };
+
+const getWeatherElements = () => {
+    const currentWeather = document.querySelector('#current-weather-card');
+    const locationName = currentWeather.querySelector('.weather-location');
+    const description = currentWeather.querySelector('.weather-desc');
+    const humidity = currentWeather.querySelector('.humidity');
+    const cloudiness = currentWeather.querySelector('.clouds');
+    const windSpeed = currentWeather.querySelector('.wind');
+
+    return { locationName, description, humidity, cloudiness, windSpeed };
+};
+
+const toggleUnits = () => {
+    this.classList.toggle('metric');
+    this.classList.toggle('imperial');
+    localStorage.setItem('units', this.className);
+};
+
