@@ -114,3 +114,13 @@ const hideError = () => {
     currentWeather.classList.remove('hidden');
     error.classList.add('hidden');
 };
+
+const showLoadingAnimation = () => {
+    const currentWeather = document.querySelector('#current-weather-card');
+    currentWeather.classList.add('loading');
+    unitsToggle.disabled = true;
+    hideError();
+    clearCurrentWeather();
+    clearForecastWeather();
+};
+
