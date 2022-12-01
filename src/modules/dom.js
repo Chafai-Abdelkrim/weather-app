@@ -124,3 +124,18 @@ const showLoadingAnimation = () => {
     clearForecastWeather();
 };
 
+const displayCurrentWeather = (weather) => {
+    const currentWeather = document.querySelector('#current-weather-card');
+    const { name, description, temperature, humidity, cloudiness, windSpeed } =
+        getWeatherElements();
+
+    currentWeather.classList.remove('loading');
+    name.textContent = `${weather.name}, ${weather.country}`;
+    description.textContent = capitalize(weather.description);
+    temperature.textContent = `${weather.temperature.toFixed(0)}°`;
+    humidity.textContent = `${weather.humidity}%`;
+    cloudiness.textContent = `${weather.cloudiness}%`;
+    windSpeed.textContent = `${weather.windSpeed} ${
+        unitsToggle.className === 'metric' ? 'm/s' : 'mph'
+    }`;
+};
