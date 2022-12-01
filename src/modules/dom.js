@@ -83,3 +83,34 @@ const toggleUnits = () => {
     localStorage.setItem('units', this.className);
 };
 
+const clearCurrentWeather = () => {
+    const weatherElements = getWeatherElements();
+    Object.keys(weatherElements).forEach((element) => {
+        weatherElements[element].textContent = '.';
+    });
+};
+
+const clearForecastWeather = () => {
+    const forecastWeather = document.querySelector('#forecast-weather');
+    const hourly = forecastWeather.querySelector('#hourly');
+    const daily = forecastWeather.querySelector('#daily');
+    hourly?.remove();
+    daily?.remove();
+};
+
+const showError = (err) => {
+    const currentWeather = document.querySelector('#current-weather-card');
+    const error = document.querySelector('#error');
+    const errorMessage = error.querySelector('#message');
+    currentWeather.classList.add('hidden');
+    error.classList.remove('hidden');
+    errorMessage.textContent = err.message;
+    unitsToggle.disabled = false;
+};
+
+const hideError = () => {
+    const currentWeather = document.querySelector('#current-weather-card');
+    const error = document.querySelector('#error');
+    currentWeather.classList.remove('hidden');
+    error.classList.add('hidden');
+};
