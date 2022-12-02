@@ -15,3 +15,27 @@ class CurrentWeather extends Weather {
         this.country = data.sys.country;
     }
 }
+
+const getCurrentWeather = async (location, units = 'metric') => {
+    const response = await fetch(
+        `${apiEndpoint}weather?q=${location}&units=${units}&appid=${apiKey}`
+    );
+    if (!response.ok) throw new Error(response.statusText);
+    const data = await response.json();
+
+    return new CurrentWeather(data);
+};
+
+const getCurrentWeatherByCoords = async (
+    { longitude, latitude },
+    units = 'metric'
+) => {
+    const response = await fetch(
+        `${apiEndpoint}weather?lon${longitude}&lat${latitude}&units=${units}&appid=${apiKey}`
+    );
+    if (!response.ok) throw new Error(response.statusText);
+    const data = await response.json();
+    return new CurrentWeather(data);
+};
+
+export { getCurrentWeather, getCurrentWeatherByCoords };
