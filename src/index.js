@@ -1,3 +1,11 @@
+import {
+    searchForm,
+    unitsToggle,
+    showError,
+    showLoadingAnimation,
+    displayCurrentWeather,
+    displayForecastWeather,
+} from './modules/dom';
 import './styles.css';
 
 let lastLocation;

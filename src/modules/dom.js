@@ -139,3 +139,33 @@ const displayCurrentWeather = (weather) => {
         unitsToggle.className === 'metric' ? 'm/s' : 'mph'
     }`;
 };
+
+const displayForecastWeather = (weather) => {
+    const forecastWeather = document.querySelector('#forecast-weather');
+    const hourly = createElement('div', { id: 'hourly' });
+    const daily = createElement('div', { id: 'daily' });
+
+    weather.hourly.forEach((hour) => {
+        hourly.appendChild(createHourlyCard(hour));
+    });
+    weather.daily.forEach((day) => {
+        daily.appendChild(createDailyCard(day));
+    });
+    const today = daily.firstElementChild.querySelector('.day');
+    today.textContent = 'Today';
+    today.classList.add('Today');
+    forecastWeather.appendChild(hourly);
+    forecastWeather.appendChild(daily);
+    unitsToggle.disabled = false;
+};
+
+unitsToggle.addEventListener('click', toggleUnits);
+
+export {
+    searchForm,
+    unitsToggle,
+    showError,
+    showLoadingAnimation,
+    displayCurrentWeather,
+    displayForecastWeather,
+};
