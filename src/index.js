@@ -6,6 +6,11 @@ import {
     displayCurrentWeather,
     displayForecastWeather,
 } from './modules/dom';
+import {
+    getCurrentWeather,
+    getCurrentWeatherByCoords,
+} from './modules/currentWeather';
+import getForecastWeather from './modules/forecastWeather';
 import './styles.css';
 
 let lastLocation;
