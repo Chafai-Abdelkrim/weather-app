@@ -1,10 +1,26 @@
-import dayjs from 'dayjs';
-import Weather from './weather';
+import { apiEndpoint, apiKey } from './api';
+import HourlyForecast from './hourlyForecast';
+import DailyForecast from './dailyForecast';
 
-class HourlyForecast extends Weather {
-    constructor(data) {
-        super(data);
-        this.hour = dayjs.unix(data.dt).format('h A');
-        this.temperature = data.temp.toFixed(0);
+class ForecastWeather {
+    constructor({ hourly, daily }) {
+        this.hourly = hourly
+            .slice(1, 9)
+            .map((hour) => new HourlyForecast(hour));
+        this.daily = daily.map((day) => new DailyForecast(day));
     }
 }
+
+const getForecastWeather = async (
+    { longitude, latitude },
+    units = 'metric'
+) => {
+    const response = await fetch(
+        `${apiEndpoint}onecall?lon=${longitude}&lat=${latitude}&units=${units}&exclude=current,minutely,alerts&appid=${apiKey}`
+    );
+    if (!response.ok) throw new Error(response.statusText);
+    const data = await response.json();
+    return new ForecastWeather(data);
+};
+
+export default getForecastWeather;
