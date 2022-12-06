@@ -1,4 +1,4 @@
 const apiEndpoint = 'https://api.openweathermap.org/data/2.5/';
-const apiKey = 'a760fb4695a9c20b9e9073027a75ed56';
+const apiKey = 'e705fd2733337e25a8b91977646312e1';
 
 export { apiEndpoint, apiKey };

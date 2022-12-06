@@ -41,6 +41,7 @@ const getWeather = async (location) => {
 
 const search = (e) => {
     e.preventDefault();
+
     const location = searchForm.text.value;
     if (location && location !== lastLocation) {
         getWeather(location);
@@ -52,7 +53,7 @@ const toggleUnits = () => {
     const location = document.querySelector(
         '#current-weather-card .weather-location'
     )?.textContent;
-    if (location !== '.') {
+    if (location !== '') {
         getWeather(location);
     }
 };

@@ -86,7 +86,7 @@ const toggleUnits = () => {
 const clearCurrentWeather = () => {
     const weatherElements = getWeatherElements();
     Object.keys(weatherElements).forEach((element) => {
-        weatherElements[element].textContent = '.';
+        weatherElements[element].textContent = '';
     });
 };
 
