@@ -31,7 +31,7 @@ const getCurrentWeatherByCoords = async (
     units = 'metric'
 ) => {
     const response = await fetch(
-        `${apiEndpoint}weather?lon${longitude}&lat${latitude}&units=${units}&appid=${apiKey}`
+        `${apiEndpoint}weather?lon=${longitude}&lat=${latitude}&units=${units}&appid=${apiKey}`
     );
     if (!response.ok) throw new Error(response.statusText);
     const data = await response.json();
