@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 const searchForm = document.querySelector('#search');
 const unitsToggle = document.querySelector('#unit-toggle');
 
@@ -85,6 +87,15 @@ const getWeatherElements = () => {
     };
 };
 
+const getDateInfoElements = () => {
+    const currentWeather = document.querySelector('#current-weather-card');
+    const day = currentWeather.querySelector('.weather-day');
+    const date = currentWeather.querySelector('.weather-date');
+    const time = currentWeather.querySelector('.weather-time');
+
+    return { day, date, time };
+};
+
 const toggleUnits = () => {
     this.classList.toggle('metric');
     this.classList.toggle('imperial');
@@ -130,6 +141,14 @@ const showLoadingAnimation = () => {
     hideError();
     clearCurrentWeather();
     clearForecastWeather();
+};
+
+const displayDateInfo = () => {
+    const { day, date, time } = getDateInfoElements();
+
+    day.textContent = dayjs().format('dddd');
+    date.textContent = dayjs().format('ddd/MM/YYYY');
+    time.textContent = dayjs().format('h:mm A');
 };
 
 const displayCurrentWeather = (weather) => {
@@ -180,6 +199,7 @@ export {
     unitsToggle,
     showError,
     showLoadingAnimation,
+    displayDateInfo,
     displayCurrentWeather,
     displayForecastWeather,
 };

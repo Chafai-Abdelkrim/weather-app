@@ -3,6 +3,7 @@ import {
     unitsToggle,
     showError,
     showLoadingAnimation,
+    displayDateInfo,
     displayCurrentWeather,
     displayForecastWeather,
 } from './modules/dom';
@@ -14,6 +15,8 @@ import getForecastWeather from './modules/forecastWeather';
 import './styles.css';
 
 let lastLocation;
+
+displayDateInfo();
 
 function getCurrentPosition(options) {
     return new Promise((resolve, reject) => {
