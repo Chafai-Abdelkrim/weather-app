@@ -71,6 +71,7 @@ const createDailyCard = (weather) => {
 const getWeatherElements = () => {
     const currentWeather = document.querySelector('#current-weather-card');
     const locationName = currentWeather.querySelector('.weather-location');
+    const icon = currentWeather.querySelector('.weather-icon');
     const description = currentWeather.querySelector('.weather-desc');
     const temperature = currentWeather.querySelector('.weather-temp');
     const humidity = currentWeather.querySelector('.humidity');
@@ -79,6 +80,7 @@ const getWeatherElements = () => {
 
     return {
         locationName,
+        icon,
         description,
         temperature,
         humidity,
@@ -155,6 +157,7 @@ const displayCurrentWeather = (weather) => {
     const currentWeather = document.querySelector('#current-weather-card');
     const {
         locationName,
+        icon,
         description,
         temperature,
         humidity,
@@ -164,6 +167,7 @@ const displayCurrentWeather = (weather) => {
 
     currentWeather.classList.remove('loading');
     locationName.textContent = `${weather.name}, ${weather.country}`;
+    icon.append(createWeatherIcon(weather));
     description.textContent = capitalize(weather.description);
     temperature.textContent = `${weather.temperature.toFixed(0)}°`;
     humidity.textContent = `${weather.humidity}%`;
