@@ -70,11 +70,19 @@ const getWeatherElements = () => {
     const currentWeather = document.querySelector('#current-weather-card');
     const locationName = currentWeather.querySelector('.weather-location');
     const description = currentWeather.querySelector('.weather-desc');
+    const temperature = currentWeather.querySelector('.weather-temp');
     const humidity = currentWeather.querySelector('.humidity');
     const cloudiness = currentWeather.querySelector('.clouds');
     const windSpeed = currentWeather.querySelector('.wind');
 
-    return { locationName, description, humidity, cloudiness, windSpeed };
+    return {
+        locationName,
+        description,
+        temperature,
+        humidity,
+        cloudiness,
+        windSpeed,
+    };
 };
 
 const toggleUnits = () => {
@@ -126,11 +134,17 @@ const showLoadingAnimation = () => {
 
 const displayCurrentWeather = (weather) => {
     const currentWeather = document.querySelector('#current-weather-card');
-    const { name, description, temperature, humidity, cloudiness, windSpeed } =
-        getWeatherElements();
+    const {
+        locationName,
+        description,
+        temperature,
+        humidity,
+        cloudiness,
+        windSpeed,
+    } = getWeatherElements();
 
     currentWeather.classList.remove('loading');
-    name.textContent = `${weather.name}, ${weather.country}`;
+    locationName.textContent = `${weather.name}, ${weather.country}`;
     description.textContent = capitalize(weather.description);
     temperature.textContent = `${weather.temperature.toFixed(0)}°`;
     humidity.textContent = `${weather.humidity}%`;
