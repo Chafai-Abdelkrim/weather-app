@@ -99,9 +99,9 @@ const getDateInfoElements = () => {
 };
 
 const toggleUnits = () => {
-    this.classList.toggle('metric');
-    this.classList.toggle('imperial');
-    localStorage.setItem('units', this.className);
+    unitsToggle.classList.toggle('metric');
+    unitsToggle.classList.toggle('imperial');
+    localStorage.setItem('units', unitsToggle.className);
 };
 
 const clearCurrentWeather = () => {
