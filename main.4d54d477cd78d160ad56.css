@@ -15,6 +15,34 @@
     font-family: 'Roboto', sans-serif;
 }
 
+:root {
+    --mangolia: #f3f3ff;
+    --lavender-blue: #c5defa;
+    --azureish-white: #e1f0f4;
+    --peach-orange: #fbc99c;
+    --onyx: #353739;
+}
+
+@keyframes loading {
+    from {
+        background-color: rgba(255, 255, 255, 0.05);
+    } 50% {
+        background-color: rgba(255, 255, 255, 0.125);
+    } to {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    } to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
 body {
     background: rgb(252, 199, 105);
     background: radial-gradient(
@@ -59,33 +87,39 @@ header {
     height: 100%;
     width: 100%;
     padding-inline: 16px 4px;
-    background: rgb(50, 54, 58);
+    background: transparent;
+    border: 1.5px solid var(--onyx);
     border-radius: 40px 0 0 40px;
     transition: color 0.25s, background-color 0.25s, box-shadow 0.25s,
         transform 0.2s, opacity 0.25s, left 0.25s;
 }
 
 #search input:hover {
-    background-color: rgb(50, 54, 58);
+    background-color: rgba(255, 255, 255, 0.35);
 }
 
 #search input:focus {
-    background-color: rgb(50, 54, 58);
+    background-color: rgba(255, 255, 255, 0.35);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.125), 0 12px 20px rgba(0, 0, 0, 0.175);
 }
 
 #search button {
     width: 3rem;
     padding-right: 3px;
-    background: rgb(234, 110, 74);
+    background: var(--peach-orange);
+    border: 1.5px solid var(--onyx);
     border-radius: 0 40px 40px 0;
     transition: color 0.25s, background-color 0.25s, box-shadow 0.25s,
         transform 0.2s, opacity 0.25s, left 0.25s;
 }
 
 #search button:hover {
-    background-color: rgb(255, 131, 80);
+    background-color: transparent;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.125), 0 12px 20px rgba(0, 0, 0, 0.175);
+}
+
+#search button:hover svg {
+    filter: invert(79%) sepia(14%) saturate(888%) hue-rotate(342deg) brightness(103%) contrast(97%);
 }
 
 #search button:active {
@@ -100,7 +134,8 @@ header {
     flex-shrink: 0;
     height: 35px;
     width: 65px;
-    background-color: black;
+    background-color: transparent;
+    border: 2px solid var(--onyx);
     border-radius: 40px;
     font-weight: 700;
 }
@@ -109,7 +144,8 @@ header {
     content: '';
     height: 30px;
     width: 30px;
-    background-color: rgb(234, 110, 74);
+    background-color: var(--peach-orange);
+    color: var(--onyx);
     border-radius: 40px;
     position: absolute;
     transition: color 0.25s, background-color 0.25s, box-shadow 0.25s,
@@ -117,7 +153,7 @@ header {
 }
 
 #unit-toggle:hover::after {
-    background-color: rgb(255, 131, 80);
+    opacity: 0.6;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.075), 0 8px 14px rgba(0, 0, 0, 0.1);
 }
 
@@ -138,3 +174,40 @@ header {
 }
 
 /* error page styling */
+
+#error {
+    position: absolute;
+    top: 25%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    color: var(--onyx);
+    animation: fade-in 1s forwards;
+}
+
+#error #message {
+    margin-bottom: 1.1rem;
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+#error p {
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+#error li {
+    margin-left: 0.8rem;
+    margin-bottom: 0.3rem;
+    color: var(--onyx);
+    font-size: 1.1rem;
+}
+
+/* current weather card styling */
