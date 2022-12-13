@@ -22,15 +22,17 @@
     --peach-orange: #fbc99c;
     --onyx: #353739;
     --transition: color 0.25s, background-color 0.25s, box-shadow 0.25s,
-    transform 0.2s, opacity 0.25s, left 0.25s;
+        transform 0.2s, opacity 0.25s, left 0.25s;
 }
 
 @keyframes loading {
     from {
         background-color: rgba(255, 255, 255, 0.05);
-    } 50% {
+    }
+    50% {
         background-color: rgba(255, 255, 255, 0.125);
-    } to {
+    }
+    to {
         background-color: rgba(255, 255, 255, 0.05);
     }
 }
@@ -39,20 +41,21 @@
     from {
         opacity: 0;
         transform: translateY(50px);
-    } to {
+    }
+    to {
         opacity: 1;
         transform: none;
     }
 }
 
 body {
-    background: rgb(252, 199, 105);
+    background: rgb(251, 201, 156);
     background: radial-gradient(
-        circle,
-        rgba(252, 199, 105, 1) 0%,
-        rgba(244, 226, 199, 1) 19%,
-        rgba(151, 168, 146, 1) 63%,
-        rgba(145, 195, 199, 1) 100%
+        rgba(53, 55, 57, 1) 0%,
+        rgba(225, 240, 244, 1) 31%,
+        rgba(243, 243, 255, 1) 53%,
+        rgba(197, 222, 250, 1) 73%,
+        rgba(251, 201, 156, 1) 94%
     );
     min-height: 100vh;
 }
@@ -119,7 +122,8 @@ header {
 }
 
 #search button:hover svg {
-    filter: invert(79%) sepia(14%) saturate(888%) hue-rotate(342deg) brightness(103%) contrast(97%);
+    filter: invert(79%) sepia(14%) saturate(888%) hue-rotate(342deg)
+        brightness(103%) contrast(97%);
 }
 
 #search button:active {
@@ -208,13 +212,19 @@ header {
     color: var(--onyx);
     font-size: 1.1rem;
 }
-
+/* weather section grid */
+.weather-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80vh;
+}
 /* current weather card styling */
 
 #current-weather-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto 3rem;
     color: var(--onyx);
 }
 /* styling the upper portion of the card */
@@ -228,7 +238,7 @@ header {
     padding-bottom: 1rem;
 }
 
-.weather-card-left h1{
+.weather-card-left h1 {
     color: var(--mangolia);
     margin: 3rem 0 1rem 2rem;
 }
@@ -341,3 +351,97 @@ header {
     width: 80px;
     right: 0;
 }
+/* forecast weather styling */
+
+/* forecast daily and hourly card styling */
+
+#hourly .card {
+    width: 110px;
+}
+
+#hourly .card,
+#daily .card {
+    min-width: 110px;
+    margin: 4px;
+    color: var(--onyx);
+    transition: var(--transition);
+    text-align: center;
+}
+
+#hourly .card:hover .hour,
+#daily .card:hover .day {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.125), 0 12px 20px rgba(0, 0, 0, 0.175);
+    transform: scale(1.05);
+}
+
+#hourly .card:hover .container,
+#daily .card:hover .container {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.125), 0 12px 20px rgba(0, 0, 0, 0.175);
+    transform: scale(1.05);
+}
+
+#hourly .card .hour,
+#daily .card .day {
+    width: 100%;
+    padding-block: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(13px);
+    color: var(--mangolia);
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 30px 30px 4px 4px;
+    transition: var(--transition);
+}
+
+#hourly .card:hover .hour,
+#daily .card:hover .day {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+#hourly .card img {
+    height: 70px;
+    margin-block: -2px -15px;
+    transition: var(--transition);
+}
+
+#hourly .card .container,
+#daily .card .container {
+    width: 100%;
+    margin-top: 3px;
+    padding-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 4px 4px 30px 30px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+#daily .card {
+    width: 160px;
+}
+
+#daily .card .today {
+    font-weight: 800;
+}
+
+#daily .card img {
+    height: 90px;
+    margin: 0 -15px -15px;
+}
+
+#daily .card .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#daily .card .temp {
+    padding-top: 15px;
+}
+
+#daily .card .min-temp {
+    color: var(--lavender-blue);
+    font-size: 1.3rem;
+}
+
