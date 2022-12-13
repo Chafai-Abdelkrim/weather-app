@@ -225,6 +225,7 @@ header {
     backdrop-filter: blur(13px);
     border-radius: 40px 40px 4px 4px;
     width: 500px;
+    padding-bottom: 1rem;
 }
 
 .weather-card-left h1{
@@ -249,7 +250,7 @@ header {
 
 .weather-card-right .weather-desc {
     position: absolute;
-    bottom: 1.2rem;
+    bottom: 0.3rem;
     left: 3rem;
     font-size: 1.5rem;
 }
@@ -311,4 +312,32 @@ header {
 .weather-card-bottom > div span {
     color: var(--azureish-white);
     font-weight: 700;
+}
+/* loading animation */
+#current-weather-card.loading .loadable {
+    color: transparent !important;
+    position: relative;
+}
+
+#current-weather-card.loading .loadable::before {
+    content: '';
+    height: 100%;
+    width: 50px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    animation: loading 1s linear infinite;
+}
+
+#current-weather-card.loading .weather-location::before {
+    width: 125px;
+}
+
+#current-weather-card.loading .weather-desc::before {
+    width: 200px;
+}
+
+#current-weather-card.loading .weather-temp::before {
+    width: 80px;
+    right: 0;
 }
