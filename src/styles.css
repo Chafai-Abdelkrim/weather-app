@@ -17,15 +17,17 @@
     --peach-orange: #fbc99c;
     --onyx: #353739;
     --transition: color 0.25s, background-color 0.25s, box-shadow 0.25s,
-    transform 0.2s, opacity 0.25s, left 0.25s;
+        transform 0.2s, opacity 0.25s, left 0.25s;
 }
 
 @keyframes loading {
     from {
         background-color: rgba(255, 255, 255, 0.05);
-    } 50% {
+    }
+    50% {
         background-color: rgba(255, 255, 255, 0.125);
-    } to {
+    }
+    to {
         background-color: rgba(255, 255, 255, 0.05);
     }
 }
@@ -34,7 +36,8 @@
     from {
         opacity: 0;
         transform: translateY(50px);
-    } to {
+    }
+    to {
         opacity: 1;
         transform: none;
     }
@@ -114,7 +117,8 @@ header {
 }
 
 #search button:hover svg {
-    filter: invert(79%) sepia(14%) saturate(888%) hue-rotate(342deg) brightness(103%) contrast(97%);
+    filter: invert(79%) sepia(14%) saturate(888%) hue-rotate(342deg)
+        brightness(103%) contrast(97%);
 }
 
 #search button:active {
@@ -223,7 +227,7 @@ header {
     padding-bottom: 1rem;
 }
 
-.weather-card-left h1{
+.weather-card-left h1 {
     color: var(--mangolia);
     margin: 3rem 0 1rem 2rem;
 }
@@ -335,4 +339,46 @@ header {
 #current-weather-card.loading .weather-temp::before {
     width: 80px;
     right: 0;
+}
+/* forecast weather styling */
+
+/* forecast daily and hourly card styling */
+
+#hourly .card,
+#daily .card {
+    min-width: 110px;
+    margin: 4px;
+    color: var(--onyx);
+    transition: var(--transition);
+    text-align: center;
+}
+
+#hourly .card:hover,
+#daily .card:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.125), 0 12px 20px rgba(0, 0, 0, 0.175);
+    transform: scale(1.05);   
+}
+
+#hourly .card .hour,
+#daily .card .day {
+    width: 100%;
+    padding-block: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(13px);
+    color: var(--onyx);
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 30px 30px 4px 4px;
+    transition: var(--transition);
+}
+
+#hourly .card:hover .hour,
+#daily .card:hover .day {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+#hourly .card img {
+    height: 70px;
+    margin-block: -2px -15px;
+    transition: var(--transition);
 }
