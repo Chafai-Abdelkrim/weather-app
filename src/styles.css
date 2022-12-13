@@ -44,13 +44,13 @@
 }
 
 body {
-    background: rgb(252, 199, 105);
+    background: rgb(251, 201, 156);
     background: radial-gradient(
-        circle,
-        rgba(252, 199, 105, 1) 0%,
-        rgba(244, 226, 199, 1) 19%,
-        rgba(151, 168, 146, 1) 63%,
-        rgba(145, 195, 199, 1) 100%
+        rgba(53, 55, 57, 1) 0%,
+        rgba(225, 240, 244, 1) 31%,
+        rgba(243, 243, 255, 1) 53%,
+        rgba(197, 222, 250, 1) 73%,
+        rgba(251, 201, 156, 1) 94%
     );
     min-height: 100vh;
 }
@@ -207,13 +207,19 @@ header {
     color: var(--onyx);
     font-size: 1.1rem;
 }
-
+/* weather section grid */
+.weather-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80vh;
+}
 /* current weather card styling */
 
 #current-weather-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto 3rem;
     color: var(--onyx);
 }
 /* styling the upper portion of the card */
@@ -344,6 +350,10 @@ header {
 
 /* forecast daily and hourly card styling */
 
+#hourly .card {
+    width: 110px;
+}
+
 #hourly .card,
 #daily .card {
     min-width: 110px;
@@ -353,10 +363,16 @@ header {
     text-align: center;
 }
 
-#hourly .card:hover,
-#daily .card:hover {
+#hourly .card:hover .hour,
+#daily .card:hover .day {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.125), 0 12px 20px rgba(0, 0, 0, 0.175);
-    transform: scale(1.05);   
+    transform: scale(1.05);
+}
+
+#hourly .card:hover .container,
+#daily .card:hover .container {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.125), 0 12px 20px rgba(0, 0, 0, 0.175);
+    transform: scale(1.05);
 }
 
 #hourly .card .hour,
@@ -365,7 +381,7 @@ header {
     padding-block: 15px;
     background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(13px);
-    color: var(--onyx);
+    color: var(--mangolia);
     font-size: 1.2rem;
     font-weight: 700;
     border-radius: 30px 30px 4px 4px;
@@ -381,4 +397,45 @@ header {
     height: 70px;
     margin-block: -2px -15px;
     transition: var(--transition);
+}
+
+#hourly .card .container,
+#daily .card .container {
+    width: 100%;
+    margin-top: 3px;
+    padding-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 4px 4px 30px 30px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+#daily .card {
+    width: 160px;
+}
+
+#daily .card .today {
+    font-weight: 800;
+}
+
+#daily .card img {
+    height: 90px;
+    margin: 0 -15px -15px;
+}
+
+#daily .card .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#daily .card .temp {
+    padding-top: 15px;
+}
+
+#daily .card .min-temp {
+    color: var(--lavender-blue);
+    font-size: 1.3rem;
 }
