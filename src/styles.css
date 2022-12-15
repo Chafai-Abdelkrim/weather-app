@@ -21,26 +21,25 @@
 }
 
 /* scrollbar styling */
-  /* Firefox */
-  * {
+/* Firefox */
+* {
     scrollbar-width: none;
     scrollbar-color: #fbc99c #ffffff;
-  }
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
     width: 10px;
-  }
+}
 
-  *::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: transparent;
-  }
+}
 
-  *::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background-color: #fbc99c;
     border-radius: 10px;
-  }
-
+}
 
 @keyframes loading {
     from {
@@ -70,8 +69,12 @@ html {
 }
 
 body {
-    background-image: url(./imgs/background.jpg);
-    background-repeat: no-repeat;
+    background: rgb(57, 59, 143);
+    background: radial-gradient(
+        circle,
+        rgba(57, 59, 143, 1) 10%,
+        rgba(147, 117, 177, 1) 92%
+    );
     min-height: 100%;
 }
 
@@ -490,3 +493,27 @@ header {
 
 /* footer styling */
 
+footer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: -1.5rem;
+    width: 100%;
+}
+
+.footer-link {
+    display: flex;
+    align-items: center;
+}
+
+.footer-link svg {
+    height: 30px;
+    width: 30px;
+    color: var(--peach-orange);
+}
+
+.footer-link:hover svg {
+    color: var(--azureish-white);
+    transform: rotateY(360deg);
+    transition: .5s;
+}
