@@ -65,9 +65,14 @@
     }
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
     background-image: url(./imgs/background.jpg);
-    min-height: 100vh;
+    background-repeat: no-repeat;
+    min-height: 100%;
 }
 
 .hidden {
@@ -400,7 +405,7 @@ header {
 #hourly .card,
 #daily .card {
     min-width: 110px;
-    margin: 4px;
+    margin: 15px 4px;
     color: var(--onyx);
     transition: var(--transition);
     text-align: center;
@@ -482,3 +487,6 @@ header {
     color: var(--lavender-blue);
     font-size: 1.3rem;
 }
+
+/* footer styling */
+
