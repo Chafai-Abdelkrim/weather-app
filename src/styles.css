@@ -517,3 +517,8 @@ footer {
     transform: rotateY(360deg);
     transition: .5s;
 }
+
+/* media queries */
+@media screen and (max-width: 1000px) {
+    
+}
